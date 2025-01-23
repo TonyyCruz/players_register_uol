@@ -1,11 +1,11 @@
-CREATE TABLE IF NOT EXISTS JOGADORES (
+CREATE TABLE IF NOT EXISTS PLAYERS (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    telefone VARCHAR(255),
-    codinome VARCHAR(255) NOT NULL,
-    grupo VARCHAR(255) NOT NULL,
-    CONSTRAINT unique_grupo_codinome UNIQUE(grupo, codinome)
+    phone VARCHAR(255),
+    codename VARCHAR(255) NOT NULL,
+    group VARCHAR(255) NOT NULL,
+    CONSTRAINT unique_group_codename UNIQUE(group, codename)
 );
 
 
