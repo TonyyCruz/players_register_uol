@@ -3,21 +3,21 @@ package com.anthony.uol_host.enums;
 import lombok.Getter;
 
 @Getter
-public enum GrupoCodinome {
-    LIGA_DA_JUSTICA(
-            "liga da justiça",
+public enum GroupCodename {
+    JUSTICE_LEAGUE(
+            "justice_league",
             "https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/liga_da_justica.xml"
     ),
-    VINGADORES(
-            "vingadores",
+    AVENGERS(
+            "avengers",
             "https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/vingadores.json"
     );
 
-    private final String nome;
+    private final String name;
     private final String uri;
 
-    GrupoCodinome(String nome, String uri) {
-        this.nome = nome;
+    GroupCodename(String name, String uri) {
+        this.name = name;
         this.uri = uri;
     }
 }
