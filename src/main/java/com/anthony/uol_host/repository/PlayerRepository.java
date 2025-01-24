@@ -1,16 +1,14 @@
 package com.anthony.uol_host.repository;
 
 import com.anthony.uol_host.model.Player;
+import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@RequiredArgsConstructor
 public class PlayerRepository {
     private final JdbcClient jdbcClient;
-
-    public PlayerRepository(JdbcClient jdbcClient) {
-        this.jdbcClient = jdbcClient;
-    }
 
     public void save(Player player) {
         jdbcClient.sql("""
