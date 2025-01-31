@@ -13,7 +13,7 @@ import java.util.List;
 public class PlayerRepository {
     private final JdbcClient jdbcClient;
 
-    public void save(Player player) {
+    public Player save(Player player) {
         jdbcClient.sql("""
                 INSERT INTO player (name, email, phone, codename, group)
                 VALUES (:name, :email, :phone, :codename, :group)
@@ -22,8 +22,9 @@ public class PlayerRepository {
                 .param("email", player.email())
                 .param("phone", player.phone())
                 .param("codename", player.codename())
-                .param("group", player.group())
+                .param("group", player.group().name())
                 .update();
+        return player;
     }
 
     public Player findById(Long id) {
@@ -38,7 +39,7 @@ public class PlayerRepository {
 
     public List<String> findAllByCodename(GroupCodename groupCodename) {
         return jdbcClient.sql("""
-                SELECT distinct(codenames) FROM PLAYERS
+                SELECT distinct(codename) FROM PLAYERS
                 WHERE group=:groupCodename
                 """)
                 .param("groupCodename", groupCodename.name())
