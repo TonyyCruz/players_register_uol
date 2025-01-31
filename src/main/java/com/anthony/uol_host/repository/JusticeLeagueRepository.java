@@ -5,10 +5,12 @@ import com.anthony.uol_host.web.JusticeLeagueDto;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
 
+@Repository
 public class JusticeLeagueRepository implements ICodenameRepository {
 
     @Override

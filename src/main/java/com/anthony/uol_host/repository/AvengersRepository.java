@@ -5,10 +5,12 @@ import com.anthony.uol_host.web.AvengersDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
 
+@Repository
 public class AvengersRepository implements ICodenameRepository {
 
     @Override
