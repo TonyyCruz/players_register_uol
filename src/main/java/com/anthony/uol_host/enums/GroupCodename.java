@@ -1,8 +1,5 @@
 package com.anthony.uol_host.enums;
 
-import lombok.Getter;
-
-@Getter
 public enum GroupCodename {
     JUSTICE_LEAGUE(
             "justice_league",
@@ -19,5 +16,13 @@ public enum GroupCodename {
     GroupCodename(String name, String uri) {
         this.name = name;
         this.uri = uri;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public String getName() {
+        return name;
     }
 }
