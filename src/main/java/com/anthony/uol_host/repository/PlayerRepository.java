@@ -17,14 +17,14 @@ public class PlayerRepository {
 
     public Player save(Player player) {
         jdbcClient.sql("""
-                INSERT INTO player (name, email, phone, codename, groupCodename)
-                VALUES (:name, :email, :phone, :codename, :groupCodename)
+                INSERT INTO PLAYERS (name, email, phone, codename, group_codename)
+                VALUES (:name, :email, :phone, :codename, :group_codename)
                 """)
                 .param("name", player.name())
                 .param("email", player.email())
                 .param("phone", player.phone())
-                .param("group_codename", player.codename())
-                .param("groupCodename", player.groupCodename().name())
+                .param("codename", player.codename())
+                .param("group_codename", player.groupCodename().name())
                 .update();
         return player;
     }
