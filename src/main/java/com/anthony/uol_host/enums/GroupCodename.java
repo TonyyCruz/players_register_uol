@@ -2,11 +2,11 @@ package com.anthony.uol_host.enums;
 
 public enum GroupCodename {
     JUSTICE_LEAGUE(
-            "justice_league",
+            "Justice league",
             "https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/liga_da_justica.xml"
     ),
     AVENGERS(
-            "avengers",
+            "Avengers",
             "https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/vingadores.json"
     );
 

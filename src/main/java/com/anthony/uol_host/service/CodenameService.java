@@ -24,14 +24,13 @@ public class CodenameService {
     }
 
     private List<String> listAvailableCodenames(GroupCodename groupCodename, List<String> usedCodenames) throws Exception {
-        List<String> availableCodenames = getCodenames(groupCodename);
-        availableCodenames.removeAll(usedCodenames);
-        return availableCodenames;
+        List<String> codenames = getCodenames(groupCodename);
+        return codenames.stream().filter(codename -> !usedCodenames.contains(codename)).toList();
     }
 
     private List<String> getCodenames(GroupCodename groupCodename) throws Exception {
         ICodenameRepository codenameRepository = codenameRepositoryFactory.create(groupCodename);
-        return codenameRepository.getCodenames();
+        return codenameRepository.getCodenames().getCodenames();
     }
 
     private String getRandomItemInList(List<String> list) {
