@@ -1,7 +1,9 @@
 package com.anthony.uol_host.repository;
 
+import com.anthony.uol_host.web.ICodenameDto;
+
 import java.util.List;
 
 public interface ICodenameRepository {
-    List<String> getCodenames() throws Exception;
+    ICodenameDto getCodenames() throws Exception;
 }

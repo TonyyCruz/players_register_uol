@@ -1,6 +1,7 @@
 package com.anthony.uol_host.repository;
 
 import com.anthony.uol_host.enums.GroupCodename;
+import com.anthony.uol_host.web.ICodenameDto;
 import com.anthony.uol_host.web.JusticeLeagueDto;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.springframework.http.HttpHeaders;
@@ -14,7 +15,7 @@ import java.util.List;
 public class JusticeLeagueRepository implements ICodenameRepository {
 
     @Override
-    public List<String> getCodenames() throws Exception {
+    public ICodenameDto getCodenames() throws Exception {
         var codenames = RestClient
                 .builder()
                 .baseUrl(GroupCodename.JUSTICE_LEAGUE.getUri())
@@ -25,7 +26,6 @@ public class JusticeLeagueRepository implements ICodenameRepository {
                 .retrieve()
                 .body(String.class);
         var xmlMapper = new XmlMapper();
-        var justiceLeague = xmlMapper.readValue(codenames, JusticeLeagueDto.class);
-        return justiceLeague.getCodenames();
+        return xmlMapper.readValue(codenames, JusticeLeagueDto.class);
     }
 }
