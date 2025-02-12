@@ -7,8 +7,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.List;
 
 @JacksonXmlRootElement(localName = "liga_da_justica")
-public record JusticeLeagueDto(
-        @JacksonXmlProperty(localName = "codinomes") CodenamesDto codenames) implements ICodenameDto {
+public record JusticeLeagueDto(@JacksonXmlProperty(localName = "codinomes") CodenamesDto codenames) implements ICodenameDto {
 
     public List<String> getCodenames() {
         return codenames.codenames();
