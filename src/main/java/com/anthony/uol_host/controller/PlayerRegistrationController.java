@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("player-registration")
-public class PlayerController {
+public class PlayerRegistrationController {
     private final PlayerService playerService;
 
-    public PlayerController(PlayerService playerService) {
+    public PlayerRegistrationController(PlayerService playerService) {
         this.playerService = playerService;
     }
 
