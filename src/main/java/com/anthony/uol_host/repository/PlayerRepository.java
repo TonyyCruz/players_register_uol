@@ -39,13 +39,19 @@ public class PlayerRepository {
                 .single();
     }
 
-    public List<String> findAllByCodename(GroupCodename groupCodename) {
+    public List<Player> findAll() {
+        return jdbcClient.sql("SELECT * FROM PLAYERS ORDER BY LOWER(name), id")
+                .query(Player.class)
+                .list();
+    }
+
+    public List<Player> findAllByGroupCodename(GroupCodename groupCodename) {
         return jdbcClient.sql("""
-                SELECT distinct(codename) FROM PLAYERS
+                SELECT * FROM PLAYERS
                 WHERE group_codename=:groupCodename
                 """)
                 .param("groupCodename", groupCodename.name())
-                .query(String.class)
+                .query(Player.class)
                 .list();
     }
 }

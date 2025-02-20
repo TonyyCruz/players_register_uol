@@ -24,7 +24,12 @@ public class PlayerService {
         return playerRepository.save(newPlayer);
     }
 
+    public List<Player> findAll() {
+        return playerRepository.findAll();
+    }
+
     private List<String> getUsedCodenames(GroupCodename groupCodename) {
-        return playerRepository.findAllByCodename(groupCodename);
+        List<Player> usedCodename = playerRepository.findAllByGroupCodename(groupCodename);
+        return usedCodename.stream().map(Player::codename).toList();
     }
 }
