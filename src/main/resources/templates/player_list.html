@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Player list</title>
+</head>
+<body>
+<div class="main-container">
+    <div class="container">
+        <H2 class="mt-5">Players List</H2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Codename</th>
+                <th>Group</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="player: ${players}">
+                <td th:text="${player.name}"></td>
+                <td th:text="${player.email}"></td>
+                <td th:text="${player.phone}"></td>
+                <td th:text="${player.codename}"></td>
+                <td th:text="${player.groupCodename}"></td>
+                <td class="font-weight-bold">Edit</td>
+                <td class="font-weight-bold">Delete</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <a href="/player-registration" class="btn btn-primary">New player</a>
+    </div>
+</div>
+
+</body>
+</html>
