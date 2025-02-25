@@ -15,10 +15,12 @@
             <H2 class="mt-5">Player registration</H2>
             <form th:action="@{/player-registration}" th:method="post" th:object="${player}">
                 <div>
+                    <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                     <label for="name">Name:</label>
                     <input type="text" id="name" th:field="*{name}" required>
                 </div>
                 <div>
+                    <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                     <label for="email">Email:</label>
                     <input type="text" id="email" th:field="*{email}" required>
                 </div>
@@ -28,6 +30,7 @@
                 </div>
                 <div class="radio">
                     <H6 class="font-weight-bold">Select your group:</H6>
+                    <div class="text-danger" th:if="${#fields.hasErrors('groupCodename')}" th:errors="*{groupCodename}"></div>
                     <div th:each="group: ${groupsCodenames}">
                         <input type="radio" th:id="${group.name()}" th:field="*{groupCodename}" th:value="${group.name()}">
                         <label th:for="${group.name()}" th:text="${group.getName()}"></label>
