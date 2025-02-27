@@ -1,6 +1,7 @@
 package com.anthony.uol_host.service;
 
 import com.anthony.uol_host.enums.GroupCodename;
+import com.anthony.uol_host.exceptions.GroupCodenameException;
 import com.anthony.uol_host.repository.ICodenameRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class CodenameService {
     public String createCodename(GroupCodename groupCodename, List<String> usedCodenames) throws Exception {
         List<String> availableCodenames = listAvailableCodenames(groupCodename, usedCodenames);
         if (availableCodenames.isEmpty()) {
-            throw new RuntimeException("No available codenames");
+            throw new GroupCodenameException("No available codenames");
         }
         return getRandomItemInList(availableCodenames);
     }

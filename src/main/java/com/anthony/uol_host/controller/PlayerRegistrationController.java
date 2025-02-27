@@ -1,6 +1,7 @@
 package com.anthony.uol_host.controller;
 
 import com.anthony.uol_host.enums.GroupCodename;
+import com.anthony.uol_host.exceptions.GroupCodenameException;
 import com.anthony.uol_host.model.Player;
 import com.anthony.uol_host.service.PlayerService;
 import jakarta.validation.Valid;
@@ -31,8 +32,13 @@ public class PlayerRegistrationController {
         if (result.hasErrors()) {
             return getViewAndModel(model, player);
         }
-        playerService.create(player);
-        return "redirect:/player-registration";
+        try {
+            playerService.create(player);
+            return "redirect:/player-registration";
+        } catch (GroupCodenameException e) {
+            result.rejectValue("groupCodename", "groupCodenameUnavailable", e.getMessage());
+            return getViewAndModel(model, player);
+        }
     }
 
     private static String getViewAndModel(Model model, Player player) {
